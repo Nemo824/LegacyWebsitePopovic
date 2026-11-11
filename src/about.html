@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Über die Daten – Earthquake Watch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html">Earthquake Watch</a>
+      <nav aria-label="Hauptnavigation">
+        <a href="index.html">Übersicht</a>
+        <a href="about.html" aria-current="page">Über die Daten</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap prose">
+    <h1>Über die Daten</h1>
+    <p class="lead">Woher die Erdbeben kommen und wie die Anwendung sie darstellt.</p>
+
+    <h2>Quelle</h2>
+    <p>Alle Einträge stammen aus dem <a href="https://earthquake.usgs.gov/fdsnws/event/1/">USGS Earthquake Catalog</a>. Die Antwort kommt als GeoJSON und wird im Browser per <code>fetch()</code> geladen.</p>
+
+    <h2>Verwendete Felder</h2>
+    <ul>
+      <li><code>features[].properties.place</code>: Ortsbeschreibung</li>
+      <li><code>features[].properties.mag</code>: Magnitude</li>
+      <li><code>features[].properties.time</code>: Zeitpunkt (Millisekunden seit 1970)</li>
+      <li><code>features[].properties.url</code>: Detailseite beim USGS</li>
+      <li><code>features[].geometry.coordinates[2]</code>: Tiefe in km</li>
+    </ul>
+
+    <h2>Hinweise zur Abfrage</h2>
+    <ul>
+      <li>Das Enddatum zählt vollständig mit: Die App fragt bis Mitternacht (UTC) des Folgetags ab.</li>
+      <li>Zeiten werden in deiner lokalen Zeitzone angezeigt.</li>
+      <li>Die Anzahl der Ergebnisse ist auf 100 begrenzt, damit die Tabelle übersichtlich bleibt.</li>
+    </ul>
+
+    <p><a class="button-link" href="index.html">Zur Übersicht</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Legacy-Projekt LEG-04</span>
+      <a href="lizenz.html">Datenlizenz</a>
+    </div>
+  </footer>
+</body>
+</html>
